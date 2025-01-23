@@ -1,0 +1,22 @@
+<div *ngIf="error" class="error-message">
+    {{ error }} <!-- Show error message if there was an error -->
+</div>
+
+<table *ngIf="!error">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.dateOfBirth}}</td> <!-- Format date using Angular's date pipe -->
+        </tr>
+    </tbody>
+</table>
