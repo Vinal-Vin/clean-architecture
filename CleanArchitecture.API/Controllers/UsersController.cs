@@ -22,6 +22,18 @@ namespace CleanArchitecture.API.Controllers
             return Ok(users);
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            return Ok(user);
+        }
+
+
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete(int id)
         {
