@@ -19,14 +19,18 @@ namespace CleanArchitecture.Infrastructure.Persistence.ModuleBuilder
                         new()
                         {
                             Id = 1,
-                            Name = "admin",
+                            FirstName = "admin",
+                            LastName = "admin",
+                            Address = "admin address",
                             Email = "admin@admin.com",
                             DateOfBirth = new DateTime(1992, 5, 15)
                         },
                         new()
                         {
                             Id = 2,
-                            Name = "admin2",
+                            FirstName = "admin2",
+                            LastName = "admin2",
+                            Address = "admin2 address",
                             Email = "admin2@admin.com",
                             DateOfBirth = new DateTime(2024, 5, 15)
                         }
