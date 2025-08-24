@@ -12,5 +12,6 @@ namespace CleanArchitecture.Core.Interfaces
         Task DeleteAsync(User user);
         Task<IEnumerable<User>> GetAllUsersAsync();
         Task<User> GetUserByIdAsync(int id);
+        Task<User> UpdateAsync(User user);
     }
 }

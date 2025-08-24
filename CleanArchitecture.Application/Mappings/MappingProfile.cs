@@ -18,6 +18,9 @@ namespace CleanArchitecture.Application.Mappings
 
             // DTO-to-Entity mapping (if needed)
             CreateMap<UserDto, User>();
+            
+            // UpdateUserDto to User mapping
+            CreateMap<UpdateUserDto, User>();
         }
     }
 }

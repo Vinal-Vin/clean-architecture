@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Application.Services;
+﻿using CleanArchitecture.Application.DTOs;
+using CleanArchitecture.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
@@ -45,6 +46,23 @@ namespace CleanArchitecture.API.Controllers
             }
 
             return NoContent(); // 204 No Content
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] UpdateUserDto updateUserDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var updatedUser = await _userService.UpdateUserAsync(id, updateUserDto);
+            if (updatedUser == null)
+            {
+                return NotFound(new { Message = "User not found" });
+            }
+
+            return Ok(updatedUser);
         }
     }
 }
