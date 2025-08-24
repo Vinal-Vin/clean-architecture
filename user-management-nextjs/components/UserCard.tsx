@@ -1,8 +1,7 @@
-export default function UserCard({
-  user,
-}: {
-  user: { id: number; name: string };
-}) {
+import Link from "next/link";
+import { User } from "@/types/user";
+
+export default function UserCard({ user }: { user: User }) {
   return (
     <div
       style={{
@@ -13,7 +12,9 @@ export default function UserCard({
       }}
     >
       <h2>{user.name}</h2>
-      <a href={`/users/${user.id}`}>View Details</a>
+      <p><strong>Email:</strong> {user.email}</p>
+      {user.address && <p><strong>Address:</strong> {user.address}</p>}
+      <Link href={`/users/${user.id}`}>View Details</Link>
     </div>
   );
 }
