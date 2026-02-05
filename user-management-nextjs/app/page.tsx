@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function HomePage() {
   return (
-    <main>
+    <main className="container">
       <h1>Welcome to User Management</h1>
       <p>
-        <a href='/users'>View Users</a>
+        <Link href="/users">View Users</Link>
       </p>
     </main>
   );

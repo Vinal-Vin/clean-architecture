@@ -1,10 +1,7 @@
 import UserCard from "./UserCard";
+import { User } from "@/types/user";
 
-export default function UserList({
-  users,
-}: {
-  users: Array<{ id: number; name: string }>;
-}) {
+export default function UserList({ users }: { users: User[] }) {
   return (
     <div>
       {users.map((user) => (

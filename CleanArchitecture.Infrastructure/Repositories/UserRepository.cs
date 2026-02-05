@@ -34,5 +34,12 @@ namespace CleanArchitecture.Infrastructure.Repositories
             _dbContext.Users.Remove(user);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<User> UpdateAsync(User user)
+        {
+            _dbContext.Users.Update(user);
+            await _dbContext.SaveChangesAsync();
+            return user;
+        }
     }
 }

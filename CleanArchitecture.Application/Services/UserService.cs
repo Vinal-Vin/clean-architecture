@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using CleanArchitecture.Application.DTOs;
+using CleanArchitecture.Core.Entities;
 using CleanArchitecture.Core.Interfaces;
 
 
@@ -49,6 +50,24 @@ namespace CleanArchitecture.Application.Services
 
             await _userRepository.DeleteAsync(user);
             return true;
+        }
+
+        public async Task<UserDto> UpdateUserAsync(int id, UpdateUserDto updateUserDto)
+        {
+            var user = await _userRepository.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return null;
+            }
+
+            // Update user properties
+            user.FirstName = updateUserDto.FirstName;
+            user.LastName = updateUserDto.LastName;
+            user.Email = updateUserDto.Email;
+            user.Address = updateUserDto.Address;
+
+            var updatedUser = await _userRepository.UpdateAsync(user);
+            return _mapper.Map<UserDto>(updatedUser);
         }
     }
 }
